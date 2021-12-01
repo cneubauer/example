@@ -6,17 +6,17 @@ workspace:
 
 steps:
 - name: install
-  image: ruby
+  image: ruby:3.0
   commands:
   - bundle install
 
 - name: test
-  image: ruby
+  image: ruby:3.0
   commands:
   - bundle exec rspec spec
 
 - name: build
-  image: ruby
+  image: ruby:3.0
   commands:
   - bundle exec rake build
   # when:
@@ -24,7 +24,7 @@ steps:
   #   - refs/tags/*
 
 - name: deploy
-  image: ruby
+  image: ruby:3.0
   environment:
     RUBYGEMS_APIKEY:
       from_secret: rubygems_apikey
