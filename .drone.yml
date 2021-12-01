@@ -2,13 +2,13 @@ kind: pipeline
 name: default
 
 steps:
-- name: install
-  image: ruby
-  volumes:
-  - name: bundle
-    path: /usr/local/bundle
-  commands:
-  - bundle install
+# - name: install
+#   image: ruby
+#   volumes:
+#   - name: bundle
+#     path: /usr/local/bundle
+#   commands:
+#   - bundle install
 
 - name: test
   image: ruby
