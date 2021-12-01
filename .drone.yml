@@ -25,6 +25,9 @@ steps:
     path: /usr/local/bundle
   commands:
   - bundle exec rake build
+  when:
+    branch:
+    - main
 
 - name: deploy
   image: ruby
@@ -39,7 +42,7 @@ steps:
   - 'echo -e "---\n:rubygems_api_key: $RUBYGEMS_APIKEY" > ~/.gem/credentials'
   - chmod 0600 ~/.gem/credentials
   - cat ~/.gem/credentials
-  # - gem push pkg/*.gem
+  - ls -al pkg/*.gem
   when:
     ref:
     - refs/tags/*
