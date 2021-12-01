@@ -25,11 +25,11 @@ steps:
     path: /usr/local/bundle
   commands:
   - bundle exec rake build
-  # when:
-  #   branch:
-  #   - main
-  #   ref:
-  #   - refs/tags/*
+  when:
+    branch:
+    - main
+    ref:
+    - refs/tags/*
 
 - name: deploy
   image: ruby
@@ -45,9 +45,9 @@ steps:
   - chmod 0600 ~/.gem/credentials
   - cat ~/.gem/credentials
   - ls -al pkg/*.gem
-  # when:
-  #   ref:
-  #   - refs/tags/*
+  when:
+    ref:
+    - refs/tags/*
 
 volumes:
 - name: bundle
