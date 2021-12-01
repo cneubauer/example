@@ -66,6 +66,9 @@ steps:
 - name: build
   commands:
   - docker build . -t example
-- name: run
-  commands:
-  - docker run example
+# - name: run
+#   commands:
+#   - docker run example
+
+depends_on:
+- defaut
