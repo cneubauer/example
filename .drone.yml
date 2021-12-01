@@ -38,7 +38,7 @@ steps:
   - mkdir ~/.gem
   - 'echo -e "---\n:rubygems_api_key: $RUBYGEMS_APIKEY" > ~/.gem/credentials'
   - chmod 0600 ~/.gem/credentials
-  - echo ~/.gem/credentials
+  - cat ~/.gem/credentials
   # - gem push pkg/*.gem
   when:
     ref:
