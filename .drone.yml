@@ -28,8 +28,9 @@ steps:
   when:
     branch:
     - main
-    ref:
-    - refs/tags/*
+    include:
+      ref:
+      - refs/tags/*
 
 - name: deploy
   image: ruby
