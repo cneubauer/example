@@ -59,7 +59,6 @@ volumes:
 
 ---
 kind: pipeline
-type: docker
 name: docker
 
 steps:
