@@ -64,12 +64,20 @@ name: docker
 
 steps:
 - name: build
-  image: docker
+  image: docker:dind
+  volumes:
+  - name: dockersock
+    path: /var/run/docker.sock
   commands:
   - docker build . -t example
 # - name: run
 #   commands:
 #   - docker run example
+
+volumes:
+- name: dockersock
+  host:
+    path: /var/run/docker.sock
 
 depends_on:
 - default
