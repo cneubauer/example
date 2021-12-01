@@ -2,22 +2,28 @@ kind: pipeline
 type: docker
 name: default
 
-workspace:
-  path: /drone/src
-
 steps:
 - name: install
   image: ruby:3.0
+  volumes:
+  - name: bundle
+    path: /usr/local/bundle
   commands:
   - bundle install
 
 - name: test
   image: ruby:3.0
+  volumes:
+  - name: bundle
+    path: /usr/local/bundle
   commands:
   - bundle exec rspec spec
 
 - name: build
   image: ruby:3.0
+  volumes:
+  - name: bundle
+    path: /usr/local/bundle
   commands:
   - bundle exec rake build
   # when:
@@ -26,6 +32,9 @@ steps:
 
 - name: deploy
   image: ruby:3.0
+  volumes:
+  - name: bundle
+    path: /usr/local/bundle
   environment:
     RUBYGEMS_APIKEY:
       from_secret: rubygems_apikey
@@ -43,3 +52,7 @@ steps:
 trigger:
   event:
   - push
+
+volumes:
+  - name: bundle
+    temp: {}
