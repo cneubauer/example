@@ -57,26 +57,26 @@ volumes:
   - name: bundle
     temp: {}
 
----
-kind: pipeline
-name: docker
+# ---
+# kind: pipeline
+# name: docker
 
-steps:
-- name: build
-  image: docker
-  volumes:
-  - name: dockersock
-    path: /var/run/docker.sock
-  commands:
-  - docker build . -t example
-# - name: run
+# steps:
+# - name: build
+#   image: docker
+#   volumes:
+#   - name: dockersock
+#     path: /var/run/docker.sock
 #   commands:
-#   - docker run example
+#   - docker build . -t example
+# # - name: run
+# #   commands:
+# #   - docker run example
 
-volumes:
-- name: dockersock
-  host:
-    path: /var/run/docker.sock
+# volumes:
+# - name: dockersock
+#   host:
+#     path: /var/run/docker.sock
 
-depends_on:
-- default
+# depends_on:
+# - default
