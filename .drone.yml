@@ -56,3 +56,16 @@ trigger:
 volumes:
   - name: bundle
     temp: {}
+
+---
+kind: pipeline
+type: exec
+name: docker
+
+steps:
+- name: build
+  commands:
+  - docker build . -t example
+- name: run
+  commands:
+  - docker run example
