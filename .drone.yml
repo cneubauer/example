@@ -42,10 +42,10 @@ steps:
   - 'echo -e "---\n:rubygems_api_key: $RUBYGEMS_APIKEY" > ~/.gem/credentials'
   - chmod 0600 ~/.gem/credentials
   - cat ~/.gem/credentials
-  - ls -al pkg/*.gem
-  when:
-    ref:
-    - refs/tags/*
+  - ls -al
+  # when:
+  #   ref:
+  #   - refs/tags/*
 
 volumes:
 - name: bundle
