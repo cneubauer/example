@@ -71,4 +71,4 @@ steps:
 #   - docker run example
 
 depends_on:
-- defaut
+- default
