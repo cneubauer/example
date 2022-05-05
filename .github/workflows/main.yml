@@ -29,4 +29,6 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Output ref_name
-        run: echo ${github.ref_name#v*}
+        run: |
+          VERSION=${github.ref_name}
+          echo ${VERSION#v*}
