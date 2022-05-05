@@ -12,6 +12,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+env:
+  FOO: foo
+  BAR: ${FOO}.bar
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -26,6 +30,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Output ref_name
-        run: echo ${VERSION#v*}
-        env:
-          VERSION: ${{github.ref_name}}
+        run: echo ${GITHUB_REF_NAME#v*}
