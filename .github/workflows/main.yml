@@ -30,4 +30,6 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Output ref_name
-        run: echo ${GITHUB_REF_NAME#v*}
+        run: |
+          echo ${GITHUB_REF_NAME#v*}
+          echo ${BAR}
